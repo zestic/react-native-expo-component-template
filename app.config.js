@@ -3,6 +3,7 @@ export default ({ config }) => ({
   name: "Component Template",
   slug: "component-template",
   version: "0.1.0",
+  main: "node_modules/expo/AppEntry.js",
   orientation: "portrait",
   icon: "./assets/icon.png",
   newArchEnabled: true,
