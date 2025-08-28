@@ -4,38 +4,38 @@
   "main": "node_modules/expo/AppEntry.js",
   "license": "MIT",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
     "storybook:web": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "storybook-generate": "sb-rn-get-stories",
     "storybook": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start",
     "storybook:ios": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start --ios",
-    "storybook:android": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start --android"
+    "storybook:android": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start --android",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^5.1.2",
-    "@react-native-async-storage/async-storage": "2.1.2",
+    "@gorhom/bottom-sheet": "^5.2.3",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/datetimepicker": "8.3.0",
     "@react-native-community/slider": "4.5.6",
-    "expo": "~53.0.9",
-    "expo-constants": "~17.1.6",
+    "expo": "~53.0.20",
+    "expo-constants": "~17.1.7",
+    "expo-dev-client": "~5.2.4",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-native": "0.79.2",
-    "react-native-gesture-handler": "~2.24.0",
-    "react-native-reanimated": "~3.17.4",
-    "react-native-safe-area-context": "5.4.0",
-    "react-native-svg": "15.11.2",
-    "react-native-web": "^0.20.0"
+    "react-native": "0.79.6",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-reanimated": "~4.0.1",
+    "react-native-safe-area-context": "5.6.1",
+    "react-native-svg": "15.12.1",
+    "react-native-web": "^0.21.1",
+    "react-native-worklets": "^0.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.25.4",
-    "@chromatic-com/storybook": "^4.0.0",
+    "@chromatic-com/storybook": "^4.1.1",
     "@expo/metro-runtime": "~5.0.4",
     "@storybook/addon-docs": "^9",
     "@storybook/addon-ondevice-actions": "^9",
@@ -54,16 +54,16 @@
   },
   "resolutions": {
     "react-docgen-typescript": "2.2.2",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.21.1"
   },
   "overrides": {
     "react-docgen-typescript": "2.2.2",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.21.1"
   },
   "pnpm": {
     "overrides": {
       "react-docgen-typescript": "2.2.2",
-      "react-native-web": "^0.20.0"
+      "react-native-web": "^0.21.1"
     }
   },
   "private": true

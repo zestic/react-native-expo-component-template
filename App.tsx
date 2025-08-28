@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Platform } from "react-native";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
 
 let AppEntryPoint = App;
 
-if (process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true") {
+if (true) {
   AppEntryPoint = require("./.rnstorybook").default;
 }
 

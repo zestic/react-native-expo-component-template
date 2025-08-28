@@ -1,8 +1,8 @@
 export default ({ config }) => ({
   ...config,
-  name: "HelloWorld",
-  slug: "expo-template-blank-typescript",
-  version: "1.0.0",
+  name: "Component Template",
+  slug: "component-template",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   newArchEnabled: true,
@@ -16,9 +16,11 @@ export default ({ config }) => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
+    bundleIdentifier: 'com.zestic.componenttemplate',
     supportsTablet: true,
   },
   android: {
+    package: 'com.zestic.component_template',
     adaptiveIcon: {
       foregroundImage: "./assets/adaptive-icon.png",
       backgroundColor: "#FFFFFF",
