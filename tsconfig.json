@@ -5,6 +5,9 @@
     "jsx": "react-jsx"
   },
   "exclude": [
-    "**/*.stories.*"
+    "**/*.stories.*",
+    "**/__tests__",
+    "**/__fixtures__",
+    "**/__mocks__"
   ]
 }
