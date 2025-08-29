@@ -30,15 +30,30 @@ This template comes pre-configured with:
 2. **Install dependencies:**
 
    ```sh
+   # npm
    npm install
-   # or
+
+   # yarn
    yarn install
+
+   # pnpm
+   pnpm install
    ```
 
-3. **Update package.json:**
+3. **Commit your lock file:**
+   ```sh
+   git add package-lock.json  # or yarn.lock / pnpm-lock.yaml
+   git commit -m "Add lock file for reproducible builds"
+   ```
+
+4. **Update package.json:**
    - Change the `name` field to your library name
    - Update `version`, `description`, and other metadata
    - Update the repository URL and author information
+
+> **📦 Package Manager Choice:** This template works with npm, yarn, or pnpm. Choose your preferred package manager and use it consistently throughout your project. The examples below show commands for all three - use whichever you prefer.
+
+> **🔒 Lock Files Required:** The CI workflows require a lock file to be committed for reproducible builds. After running your first `install` command, make sure to commit the generated lock file (`package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml`).
 
 ### Development
 
@@ -47,7 +62,14 @@ This template comes pre-configured with:
 Start the Expo development server:
 
 ```sh
+# npm
+npm start
+
+# yarn
 yarn start
+
+# pnpm
+pnpm start
 ```
 
 #### Storybook Development
@@ -58,29 +80,29 @@ This template supports both on-device and web Storybook:
 
 ```sh
 # Start on-device storybook
-yarn storybook
+npm run storybook        # or: yarn storybook / pnpm storybook
 
 # iOS specific
-yarn storybook:ios
+npm run storybook:ios    # or: yarn storybook:ios / pnpm storybook:ios
 
 # Android specific
-yarn storybook:android
+npm run storybook:android # or: yarn storybook:android / pnpm storybook:android
 ```
 
 **Web Storybook:**
 
 ```sh
 # Start web storybook
-yarn storybook:web
+npm run storybook:web    # or: yarn storybook:web / pnpm storybook:web
 
 # Build web storybook
-yarn storybook:build
+npm run storybook:build  # or: yarn storybook:build / pnpm storybook:build
 ```
 
 If you add new stories, update the story loader:
 
 ```sh
-yarn storybook:generate
+npm run storybook:generate # or: yarn storybook:generate / pnpm storybook:generate
 ```
 
 #### Building Your Library
@@ -88,13 +110,13 @@ yarn storybook:generate
 Build the library for distribution:
 
 ```sh
-yarn library:build
+npm run library:build     # or: yarn library:build / pnpm library:build
 ```
 
 Verify the build:
 
 ```sh
-yarn library:verify
+npm run library:verify    # or: yarn library:verify / pnpm library:verify
 ```
 
 #### Testing
@@ -103,13 +125,13 @@ Run tests:
 
 ```sh
 # Run all tests
-yarn test
+npm test                  # or: yarn test / pnpm test
 
 # Run tests in watch mode
-yarn test:watch
+npm run test:watch        # or: yarn test:watch / pnpm test:watch
 
 # Run tests with coverage
-yarn test:coverage
+npm run test:coverage     # or: yarn test:coverage / pnpm test:coverage
 ```
 
 #### Code Formatting
@@ -118,13 +140,13 @@ Format your code with Prettier:
 
 ```sh
 # Format all files
-yarn format
+npm run format            # or: yarn format / pnpm format
 
 # Check if files are formatted correctly
-yarn format:check
+npm run format:check      # or: yarn format:check / pnpm format:check
 
 # Format specific files (useful for pre-commit hooks)
-yarn format:staged <file1> <file2>
+npm run format:staged <file1> <file2>  # or: yarn format:staged / pnpm format:staged
 ```
 
 ## Project Structure
@@ -150,7 +172,7 @@ src/
 
 ## Publishing
 
-1. Build your library: `yarn library:build`
+1. Build your library: `npm run library:build` (or `yarn library:build` / `pnpm library:build`)
 2. Update version in `package.json`
 3. Publish to npm: `npm publish`
 
