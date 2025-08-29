@@ -11,7 +11,7 @@ const colors = {
   yellow: '\x1b[33m',
   blue: '\x1b[34m',
   reset: '\x1b[0m',
-  bold: '\x1b[1m'
+  bold: '\x1b[1m',
 };
 
 function log(message, color = colors.reset) {
@@ -70,17 +70,17 @@ function runCommand(command, description) {
 
 function verifyBuildBob() {
   logHeader('🔍 Build Bob Verification Script');
-  
+
   let totalChecks = 0;
   let passedChecks = 0;
 
   // 1. Check Build Output Directory Structure
   logHeader('1. Checking Build Output Directory Structure');
-  
+
   const libDir = 'lib';
   const moduleDir = path.join(libDir, 'module');
   const typescriptDir = path.join(libDir, 'typescript');
-  
+
   totalChecks++;
   if (checkDirectoryExists(libDir)) {
     logSuccess(`${libDir}/ directory exists`);
@@ -88,7 +88,7 @@ function verifyBuildBob() {
   } else {
     logError(`${libDir}/ directory missing`);
   }
-  
+
   totalChecks++;
   if (checkDirectoryExists(moduleDir)) {
     logSuccess(`${moduleDir}/ directory exists`);
@@ -96,7 +96,7 @@ function verifyBuildBob() {
   } else {
     logError(`${moduleDir}/ directory missing`);
   }
-  
+
   totalChecks++;
   if (checkDirectoryExists(typescriptDir)) {
     logSuccess(`${typescriptDir}/ directory exists`);
@@ -107,14 +107,14 @@ function verifyBuildBob() {
 
   // 2. Check Generated Files
   logHeader('2. Checking Generated Files');
-  
+
   const criticalFiles = [
     'lib/module/index.js',
     'lib/module/index.js.map',
     'lib/typescript/src/index.d.ts',
-    'lib/typescript/src/index.d.ts.map'
+    'lib/typescript/src/index.d.ts.map',
   ];
-  
+
   criticalFiles.forEach(file => {
     totalChecks++;
     if (checkFileExists(file)) {
@@ -128,7 +128,7 @@ function verifyBuildBob() {
 
   // 3. Verify File Content
   logHeader('3. Verifying File Content');
-  
+
   const moduleIndex = 'lib/module/index.js';
   totalChecks++;
   if (checkFileExists(moduleIndex)) {
@@ -142,7 +142,7 @@ function verifyBuildBob() {
   } else {
     logError(`${moduleIndex} not found for content verification`);
   }
-  
+
   const typesIndex = 'lib/typescript/src/index.d.ts';
   totalChecks++;
   if (checkFileExists(typesIndex)) {
@@ -159,12 +159,12 @@ function verifyBuildBob() {
 
   // 4. Check Source Maps
   logHeader('4. Checking Source Maps');
-  
+
   const sourceMaps = [
     'lib/module/index.js.map',
-    'lib/typescript/src/index.d.ts.map'
+    'lib/typescript/src/index.d.ts.map',
   ];
-  
+
   sourceMaps.forEach(mapFile => {
     totalChecks++;
     if (checkFileExists(mapFile)) {
@@ -194,7 +194,11 @@ function verifyBuildBob() {
   const moduleIndexFile = 'lib/module/index.js';
   if (checkFileExists(moduleIndexFile)) {
     const content = readFileContent(moduleIndexFile);
-    if (content && content.includes('export') && !content.includes('module.exports')) {
+    if (
+      content &&
+      content.includes('export') &&
+      !content.includes('module.exports')
+    ) {
       logSuccess('Built files use ES module syntax');
       passedChecks++;
     } else {
@@ -221,7 +225,7 @@ function verifyBuildBob() {
 
   // 6. Validate TypeScript Declarations
   logHeader('6. Validating TypeScript Declarations');
-  
+
   totalChecks++;
   const tsCheck = runCommand(
     'npx tsc --noEmit --skipLibCheck lib/typescript/src/index.d.ts',
@@ -233,12 +237,12 @@ function verifyBuildBob() {
 
   // 7. Check Package.json Configuration
   logHeader('7. Checking Package.json Configuration');
-  
+
   totalChecks++;
   if (checkFileExists('package.json')) {
     const packageJson = JSON.parse(readFileContent('package.json'));
     const bobConfig = packageJson['react-native-builder-bob'];
-    
+
     if (bobConfig && bobConfig.source === 'src' && bobConfig.output === 'lib') {
       logSuccess('Build Bob configuration is correct');
       passedChecks++;
@@ -251,20 +255,28 @@ function verifyBuildBob() {
 
   // Summary
   logHeader('📊 Verification Summary');
-  
+
   const successRate = Math.round((passedChecks / totalChecks) * 100);
-  
+
   if (successRate === 100) {
     logSuccess(`All checks passed! (${passedChecks}/${totalChecks})`);
     logSuccess('🎉 Build Bob is working perfectly!');
   } else if (successRate >= 90) {
-    logWarning(`Most checks passed (${passedChecks}/${totalChecks} - ${successRate}%)`);
+    logWarning(
+      `Most checks passed (${passedChecks}/${totalChecks} - ${successRate}%)`
+    );
     logWarning('Build Bob is working well with minor issues.');
   } else if (successRate >= 75) {
-    logWarning(`Some checks failed (${passedChecks}/${totalChecks} - ${successRate}%)`);
-    logWarning('Build Bob is mostly working, but there are some issues to address.');
+    logWarning(
+      `Some checks failed (${passedChecks}/${totalChecks} - ${successRate}%)`
+    );
+    logWarning(
+      'Build Bob is mostly working, but there are some issues to address.'
+    );
   } else {
-    logError(`Many checks failed (${passedChecks}/${totalChecks} - ${successRate}%)`);
+    logError(
+      `Many checks failed (${passedChecks}/${totalChecks} - ${successRate}%)`
+    );
     logError('Build Bob has significant issues that need to be fixed.');
   }
 
@@ -275,7 +287,9 @@ function verifyBuildBob() {
     logInfo('• Run "npx bob build --clean" for a fresh build');
     logInfo('• Check that your src/index.tsx exports are correct');
     logInfo('• Verify your Build Bob configuration in package.json');
-    logInfo('• For React Native components, import testing should be done in a React Native environment');
+    logInfo(
+      '• For React Native components, import testing should be done in a React Native environment'
+    );
   }
 
   // Exit with appropriate code

@@ -13,6 +13,7 @@ This template comes pre-configured with:
 - **🔨 Builder Bob** - Library build tool for React Native packages
 - **🧪 Testing** - Jest and React Native Testing Library setup
 - **📦 TypeScript** - Full TypeScript support
+- **✨ Prettier** - Code formatting and style consistency
 - **🎨 Example Components** - Sample Button component with stories and tests
 
 ## Getting Started
@@ -20,12 +21,14 @@ This template comes pre-configured with:
 ### Installation
 
 1. **Clone or use this template:**
+
    ```sh
    git clone https://github.com/zestic/react-native-expo-component-template.git my-component-library
    cd my-component-library
    ```
 
 2. **Install dependencies:**
+
    ```sh
    npm install
    # or
@@ -52,6 +55,7 @@ yarn start
 This template supports both on-device and web Storybook:
 
 **On-Device Storybook:**
+
 ```sh
 # Start on-device storybook
 yarn storybook
@@ -64,6 +68,7 @@ yarn storybook:android
 ```
 
 **Web Storybook:**
+
 ```sh
 # Start web storybook
 yarn storybook:web
@@ -73,6 +78,7 @@ yarn storybook:build
 ```
 
 If you add new stories, update the story loader:
+
 ```sh
 yarn storybook:generate
 ```
@@ -80,11 +86,13 @@ yarn storybook:generate
 #### Building Your Library
 
 Build the library for distribution:
+
 ```sh
 yarn library:build
 ```
 
 Verify the build:
+
 ```sh
 yarn library:verify
 ```
@@ -92,6 +100,7 @@ yarn library:verify
 #### Testing
 
 Run tests:
+
 ```sh
 # Run all tests
 yarn test
@@ -101,6 +110,21 @@ yarn test:watch
 
 # Run tests with coverage
 yarn test:coverage
+```
+
+#### Code Formatting
+
+Format your code with Prettier:
+
+```sh
+# Format all files
+yarn format
+
+# Check if files are formatted correctly
+yarn format:check
+
+# Format specific files (useful for pre-commit hooks)
+yarn format:staged <file1> <file2>
 ```
 
 ## Project Structure

@@ -37,14 +37,16 @@ node bin/verify-build.js
 ### Output:
 
 The script provides colored output with:
+
 - ✅ Green checkmarks for passed checks
-- ❌ Red X marks for failed checks  
+- ❌ Red X marks for failed checks
 - ⚠️ Yellow warnings for partial issues
 - ℹ️ Blue info messages for running commands
 
 ### Troubleshooting:
 
 If checks fail, the script provides helpful tips:
+
 - Run `npx bob build` for a fresh build
 - Check that your `src/index.tsx` exports are correct
 - Verify your Build Bob configuration in `package.json`

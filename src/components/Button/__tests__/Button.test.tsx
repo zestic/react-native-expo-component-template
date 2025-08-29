@@ -7,7 +7,7 @@ describe('MyButton', () => {
     const { getByText } = render(
       <MyButton text="Click me" onPress={() => {}} />
     );
-    
+
     expect(getByText('Click me')).toBeTruthy();
   });
 
@@ -16,9 +16,9 @@ describe('MyButton', () => {
     const { getByText } = render(
       <MyButton text="Click me" onPress={mockOnPress} />
     );
-    
+
     fireEvent.press(getByText('Click me'));
-    
+
     expect(mockOnPress).toHaveBeenCalledTimes(1);
   });
 
@@ -39,7 +39,7 @@ describe('MyButton', () => {
     const { getByText } = render(
       <MyButton text="Click me" onPress={() => {}} />
     );
-    
+
     const buttonText = getByText('Click me');
     expect(buttonText).toHaveStyle({
       color: 'white',
@@ -53,12 +53,12 @@ describe('MyButton', () => {
     const { getByText } = render(
       <MyButton text="Click me" onPress={mockOnPress} />
     );
-    
+
     const button = getByText('Click me');
     fireEvent.press(button);
     fireEvent.press(button);
     fireEvent.press(button);
-    
+
     expect(mockOnPress).toHaveBeenCalledTimes(3);
   });
 
@@ -66,11 +66,11 @@ describe('MyButton', () => {
     const { rerender, getByText } = render(
       <MyButton text="First text" onPress={() => {}} />
     );
-    
+
     expect(getByText('First text')).toBeTruthy();
-    
+
     rerender(<MyButton text="Second text" onPress={() => {}} />);
-    
+
     expect(getByText('Second text')).toBeTruthy();
   });
 });
